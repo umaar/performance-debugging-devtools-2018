@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Performance Debugging with DevTools</title>
+		<meta name="description" content="Slides for 'A Modern Front-End Workflow 2017'">
+		<meta name="author" content="Umar Hansa">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/unused.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-31819122-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+	<h2>Performance Debugging</h2>
+	<h1>With DevTools</h1>
+
+	<p>You can also watch this talk <a href="https://www.youtube.com/watch?v=wz1Sy5C039M" target="_blank">online</a></p>
+</section>
+
+<section>
+	<h3>Me</h3>
+	<ul class="no-bullet">
+		<li>
+			<span class="emoji">🐦</span>
+			Twitter:&nbsp;<a target="_blank" href="https://twitter.com/umaar"> @umaar
+		</a></li>
+		<li>
+			<span class="emoji">📧</span>
+			Dev Tips:&nbsp;<a href="https://umaar.com/dev-tips" target="_blank">umaar.com/dev-tips</a>
+
+		</li>
+		<li>
+			<span class="emoji">💷</span>
+			Course:&nbsp;<a target="_blank" href="https://moderndevtools.com/">ModernDevTools.com</a>
+		</li>
+	</ul>
+</section>
+
+
+
+<section>
+	<h2>
+		This talk:
+	</h2>
+
+	<ul class="no-bullet">
+		<li>
+			<span class="emoji">✅</span>
+			Uses&nbsp; <strong>Canary</strong></li>
+		<li>
+			<span class="emoji">🆕</span>
+		Enables experimental features</li>
+		<li>
+			<span class="emoji">👀</span>
+		Has lots of live demos!</li>
+	</ul>
+</section>
+
+
+<section>
+	<h2>What will we cover?</h2>
+	<br>
+	<ol class="what-cover no-bullet">
+		<li><span class="emoji">🌍 </span>Network Performance</li>
+		<li><span class="emoji">📺 </span>Render Performance</li>
+		<li><span class="emoji">👩🏻‍💻</span>Programmatic Performance</li>
+	</ul>
+</section>
+
+
+<section>
+	<h2>Network Performance</h2>
+</section>
+
+
+<section>
+	<h3>Fonts + Local Overrides</h3>
+
+	<p>Hello online viewer! The part of the talk was a live demo on local overrides. <a href="https://www.youtube.com/watch?v=yRrrL0Mg1pM">This video</a> explains all</p>
+</section>
+
+
+<section>
+	<h3>What did we just see?</h3>
+	<ul class="no-bullet">
+		<li>
+			<span class="emoji">🖼</span>
+			Screenshots in the network panel
+		</li>
+		<li>
+			<span class="emoji">✨</span>
+			Local overrides + Pretty printing
+		</li>
+		<li>
+			<span class="emoji">📖</span>
+			Font display
+		</li>
+	</ul>
+</section>
+
+
+<section>
+	<h2>
+		Render Performance
+	</h2>
+</section>
+
+<section>
+	<h2>
+		Performance 🚀
+	</h2>
+
+	<h3>
+		Was traditionally all in the network
+	</h3>
+</section>
+
+<section data-background="img/network/network-overview.png"></section>
+
+<section data-background="img/network/network-timing.png"></section>
+
+<section>
+	<p>But</p>
+	<h3>Heavy frontend?</h3>
+</section>
+
+<section>
+	<p>Then say hello to</p>
+	<h2>👋 Render Performance 👋</h2>
+</section>
+
+<section>
+	<ul class="slide-long-list">
+		<li>Scrolling smoothness</li>
+		<li>Animation FPS</li>
+		<li>Size of the DOM</li>
+		<li>CSS Complexity</li>
+		<li>Time to interactive</li>
+		<li>Speed of visual progress</li>
+		<li>User input response Times</li>
+		<li>JavaScript parse time</li>
+		<li>JavaScript execution time</li>
+		<li>JavaScript heap size</li>
+	</ul>
+</section>
+
+<section>
+	<p>Fortunately, we have</p>
+	<h2>Tooling</h2>
+</section>
+
+<section>
+	<ul class="slide-long-list">
+		<li>FPS Meter</li>
+		<li>Paint Profiler</li>
+		<li>Paint Flashing</li>
+		<li>Timeline Recorder</li>
+		<li>JavaScript Source Code Profiling</li>
+		<li>Network Timing Breakdown</li>
+		<li>Console Timing</li>
+		<li>Filmstrip Recording</li>
+		<li>Scroll Bottlenecks</li>
+		<li>JavaScript Heap Snapshots</li>
+		<li>JavaScript Allocations</li>
+		<li>CPU Profiler</li>
+		<li>Timeline History</li>
+		<li>Paint Indicators</li>
+		<li>Memory Profiler</li>
+		<li>Layers Panel</li>
+		<li>Performance monitor</li>
+	</ul>
+</section>
+
+<section>
+	<p>These tools can turn something </p>
+	<h3>qualitative  &nbsp;👌</h3>
+	<br>
+	<p>Into something </p>
+	<h3>quantitative  &nbsp;🔢</h3>
+</section>
+
+<section>
+	<blockquote class="larger-blockquote">
+		<p>🐢🐢 &nbsp; "It feels sluggish" &nbsp;  🐢🐢</p>
+	</blockquote>
+</section>
+
+<section>
+	<p>DevTools can help you<p>
+		<h3>quantify</h3>
+	<p>the performance of your webpage</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section>
+	<h2>Page Smoothness</h2>
+	<p>With the FPS Meter</p>
+</section>
+
+
+<section data-background="img/misc/fps-meter.png"></section>
+<section data-background-video="vid/misc/fps-meter.mp4"></section>
+
+<section>
+	<h2>JavaScript Execution Cost</h2>
+	<p>Line Level Profiling with <code><a href="https://threejs.org/examples/canvas_particles_waves.html" target="_blank">three.js</a></code></p>
+
+	<p>Hello online viewer! This was a live demo of <a href="https://umaar.com/dev-tips/99-line-level-profiling/" target="_blank">line-level profiling</a></p>
+</section>
+
+<section>
+	<h2>
+		Breaking Rules
+	</h2>
+
+	<p>Console Violations</p>
+</section>
+
+<section data-background="img/console/violation-how-to.png"></section>
+<section data-background="img/console/violation1.png"></section>
+<section data-background="img/console/violation2.png"></section>
+
+
+<section>
+	<h2>DevTools Audits</h2>
+</section>
+
+<section data-background="img/misc/audit-1.png"></section>
+<section data-background="img/misc/audit-2.png"></section>
+<section data-background="img/misc/audit-3.png"></section>
+<section data-background="img/misc/audit-4.png"></section>
+<section data-background="img/misc/audit-5.png"></section>
+<section data-background="img/misc/audit-6.png"></section>
+<section data-background="img/misc/audit-7.png"></section>
+
+<section>
+	<h3>Find out:</h3>
+	<ul>
+		<li>Why the audit is important?</li>
+		<li>How to pass the audit</li>
+		<li>How the audit is implemented</li>
+	</ul>
+</section>
+
+<section data-background="img/misc/audit-8.png"></section>
+
+
+<section>
+	<h2>
+		Shareable Audits
+	</h2>
+	<p>
+		With
+		 <a href="https://www.webpagetest.org/lighthouse.php?test=170530_0F_V3N&run=2" target="_blank">
+			<strong>WebPageTest + Lighthouse</strong>
+		</a>
+	</p>
+</section>
+
+
+
+<section>
+	<h2>A two Minute Performance Workflow</h2>
+
+	<p>Hello online viewer! This live demo showcased a few bits and pieces. See it at the <a href="https://youtu.be/wz1Sy5C039M?t=17m35s" target="_blank">17m 35s</a> mark.</p>
+
+	<small>Or see <a href="https://moderndevtools.com/lessons/7" target="_blank">lesson 7</a> of Modern DevTools</small>
+</section>
+
+<section>
+	<h4>Request Blocking is a thing!</h4>
+</section>
+
+<section data-background="img/network/request-blocking.png"></section>
+
+
+<section>
+	<h3>Workflow Recap:</h3>
+
+	<ol>
+		<li><p>📽 &nbsp; <strong>Record</strong> perf profile #1</p></li>
+		<li><p>🚫 &nbsp; <strong>Block</strong> a script (product) in the Network Panel</p></li>
+		<li><p>📽 &nbsp; <strong>Record</strong> perf profile #2</p></li>
+		<li><p>📊 &nbsp; <strong>Compare</strong> recording #1 with #2</p></li>
+	</ol>
+</section>
+
+
+<section>
+	<h2>Find Third Party Scripts</h2>
+	<p>Product Badges</p>
+</section>
+
+<section data-background="img/misc/products-enable.png"></section>
+<section data-background-video="vid/network/products.mp4"></section>
+<section data-background="img/console/products.png"></section>
+<section data-background="img/console/products-annotated.png"></section>
+
+
+<section>
+	<img src="img/performance/products-bottom-up.png" alt="">
+</section>
+
+<section data-background-video="vid/performance/products.mp4"></section>
+
+
+
+<section>
+	<h3>Performance Monitor</h3>
+
+	<p>Hello online viewer! This part of the demo showed the <a href="https://umaar.com/dev-tips/155-performance-monitor/" target="_blank"> performance monitor</a></p>
+</section>
+
+<section>
+	<h3>Performance Monitor - Why?</h3>
+
+	<ul>
+		<li>Quicker + simpler <strong>introduction</strong> to render performance</li>
+		<li>Capture metrics throughout your <strong>complete</strong> website usage</li>
+		<li><strong>Drill down</strong> into only what you care about - remove the noise</li>
+	</ul>
+</section>
+
+
+<section>
+	<h2>
+		Programmatic Performance
+	</h2>
+</section>
+
+
+
+
+<section>
+	<h2>Paint Indicators</h2>
+	<p>
+		Hello online viewer! The part of the demo showed off <a href="https://youtu.be/wz1Sy5C039M?t=25m16s" target="_blank">paint indicators @ 25m 16s</a>.
+	</p>
+</section>
+
+<section>
+	<p><code>performance.getEntriesByType('paint')</code></p>
+</section>
+
+<section>
+	<p>
+		<a target="_blank" href="https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view">Want to learn more?
+		</a></p>
+</section>
+
+
+
+
+<section>
+	<h2>Identify Unused CSS &amp; JS</h2>
+	<p>
+		Hello online viewer! This part of the talk showed off <a href="https://umaar.com/dev-tips/121-css-coverage/" target="_blank"> code coverage</a>
+	</p>
+</section>
+
+
+<section>
+	<h5>Code Coverage Features</h5>
+
+	<ul>
+		<li>👁 &nbsp; Visualise your unused CSS &amp; JS</li>
+		<li>♻ &nbsp; Real-time updates</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Programmatic</h2>
+	<h3> Code Coverage</h3>
+
+	<p>Hello online viewer! This part of the talk showed off using puppeteer to extract code coverage information. You can view and run the code <a href="https://github.com/umaar/performance-debugging-devtools-2018/blob/unused-css/index.js" target="_blank">here on GitHub</a></p>
+</section>
+
+<section>
+	<h5>Monitoring your unused CSS over time?</h5>
+</section>
+
+<section>
+	<img src="img/percent-unused-css.png" alt="">
+</section>
+
+
+
+<section>
+	<h2>Recap</h2>
+</section>
+
+<section  data-background="img/network/soylent-screenshot.png"></section>
+<section  data-background="img/sources/overrides.png"></section>
+<section  data-background="img/sources/line-profiling.png"></section>
+<section  data-background="img/performance/performance-audit.png"></section>
+<section  data-background="img/performance/performance-history.png"></section>
+<section  data-background="img/performance/perf-monitor.png"></section>
+<section  data-background="img/console/paint-entries.png"></section>
+<section  data-background="img/performance/coverage.png"></section>
+
+
+
+<section>
+	<h1>Thank you</h1>
+	<ul>
+		<li>
+			<h4>
+				Course Website - <a target="_blank" href="https://moderndevtools.com/">ModernDevtools.com</a>
+			</h4>
+		</li>
+
+		<li>
+			<h4>
+				DevTools tips and tricks in your inbox - <a target="_blank" href="https://umaar.com/dev-tips/">umaar.com/dev-tips</a>
+			</h4>
+		</li>
+
+		<li>
+			<h4>
+				Twitter - <a target="_blank" href="https://twitter.com/umaar"> @umaar</a>
+			</h4>
+		</li>
+	</ul>
+
+</section>
+
+
+
+</div> <!-- .slides -->
+
+</div><!-- .reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				width: 1280,
+				height: 720,
+				transition: 'fade',
+
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

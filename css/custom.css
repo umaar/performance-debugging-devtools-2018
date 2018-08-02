@@ -1,0 +1,100 @@
+.navigate-down,
+.navigate-up {
+  display: none; }
+
+.no-bullet {
+  list-style-type: none !important;
+}
+
+.no-bullet li {
+  display: flex;
+  align-items: center;
+}
+.no-bullet .emoji {
+  font-size: 60px;
+  margin-left: 10px;
+  margin-right: 40px;
+}
+
+
+section video {
+  display: block;
+  margin: 10px auto; }
+
+
+
+.reveal section img {
+  display: block;
+  margin: 15px auto;
+  background: none;
+  border: none;
+  box-shadow: none; }
+
+.reveal section ul {
+  margin: 20px 0;
+  line-height: 2; }
+
+.slide-shazam img {
+  background: #fff !important;
+  padding: 5px 20px;
+  max-width: 360px; }
+
+.slide-layout-editor ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; }
+
+.slide-layout-editor ul li span {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  display: inline-block; }
+
+.slide-layout-editor ul li:first-child span {
+  background: #76da00; }
+
+.slide-layout-editor ul li:last-child span {
+  background: #f7b126; }
+
+.faded {
+  opacity: 0.1; }
+
+.rounded {
+  border-radius: 50%; }
+
+.reveal .slide-command-menu img {
+  background: #fff; }
+
+body {
+  background: #222; }
+
+
+.reveal section .sitepen-logo img  {
+  max-width: 400px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.reveal .slides section .fragment {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 8s ease;
+}
+
+.reveal .slides section .fragment.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reveal .slides section .larger-code-example {
+  margin-top: 80px;
+  font-size: 45px;
+}
+
+.reveal .slides section .larger-blockquote {
+  font-size: 50px;
+}
+
+.reveal a {
+  color: #48d1cc;
+}
